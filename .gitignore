@@ -33,3 +33,6 @@
 
 # mqtt personal information
 mqttKeys*
+
+# vscode config
+.vscode
