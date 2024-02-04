@@ -1,3 +1,14 @@
+/*
+Header file for macPaint helper class.
+by: Daniel Jimenez Gil
+This helper class will take care of rendering the
+macPaint application on the 2.4" TFT display.
+it makes use of a TFT library to render the graphics
+while providing a simple interface that facilitates making
+changes to the app without the need of understanding the app
+layout.
+*/
+
 #ifndef macPaint
 #define macPaint
 #include <Arduino.h>
