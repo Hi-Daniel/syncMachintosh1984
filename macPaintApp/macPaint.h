@@ -26,9 +26,9 @@
 
 // DEFINE SIZES //
 
-#define thin 0
-#define medium 1
-#define thick 2
+#define THIN 0
+#define MEDIUM 1
+#define THICK 2
 
 // DEFINE SHAPES //
 
@@ -37,12 +37,21 @@
 #define CIRCLE 2
 #define HEART 3
 
+// DEFINE TOOLBAR SIZES AND POSITIONS (in pixels) //
+// Full screen size is 240x320
+
+#define CANVAS_WIDTH 180
+#define CANVAS_HEIGHT 240
+#define CANVAS_PADDING 10
+#define TOOLBAR_PADDING 3
+
 // DEFINE macPaint class //
 class macPaint
 {
 public:
+    void macPaint();
     // setup screen with all elements
-    bool setup_macPaint();
+    bool init_macPaint();
     // change the current tool
     void select_tool(int8_t tool);
     // change the current color
@@ -52,15 +61,23 @@ public:
     // change the current size
     void select_size(int8_t size);
     // use the current_tool
-    void use_tool();
+    void use_tool(int32_t xs, int32_t ys, int32_t xe, int32_t ye);
+    // update convas with data
+    void set_canvasData([SOME SORT OF DATA BUS] data);
     // retrieve the current canvas data
     [SOME SORT OF DATA BUS] get_canvasData();
 
 private:
     [SOME SORT OF DATA BUS] _canvasData;
-    [SOME SORT OF ENUM] _current_tool;
-    [SOME SORT OF ENUM] _current_color;
-    [SOME SORT OF ENUM] _current_shape;
+    int8_t _current_tool;
+    int8_t _current_color;
+    int8_t _current_shape;
+
+    void _drawToolbar();
+    void _drawColorbar();
+    void _drawShapebar();
+    void _drawSizebar();
+    void _initializeCanvas();
 };
 
 #endif // ends #ifndef macPaint
